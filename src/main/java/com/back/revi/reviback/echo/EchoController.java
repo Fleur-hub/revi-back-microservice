@@ -1,4 +1,4 @@
-package com.back.revi.revibackmicroservice.controller;
+package com.back.revi.reviback.echo;
 
 import java.util.Base64;
 import java.util.Collections;
@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.back.revi.revibackmicroservice.dto.JsonPayload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/echo")
 public class EchoController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(EchoController.class);
@@ -46,7 +47,7 @@ public class EchoController {
 		response.set(JsonPayload.BODY, rawBody != null ? Base64.getEncoder().encodeToString(rawBody) : null);
 		LOG.info("REQUEST: {}", request.getParameterMap());
 
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 

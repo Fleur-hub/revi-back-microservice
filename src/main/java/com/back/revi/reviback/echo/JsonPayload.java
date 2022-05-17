@@ -1,4 +1,4 @@
-package com.back.revi.revibackmicroservice.dto;
+package com.back.revi.reviback.echo;
 
 import java.util.HashMap;
 import java.util.Map;
