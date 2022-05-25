@@ -43,7 +43,8 @@ public class User {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@Column(name = "sign_date")
+	@Column(name = "sign_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp signDate;
 
 }

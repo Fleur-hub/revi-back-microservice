@@ -1,13 +1,16 @@
 package com.back.revi.reviback.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Service
 public class UserService {
-	@Autowired
+
 	private UserRepository userRepo;
 
 	public User save(User user) {

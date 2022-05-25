@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +24,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/housing")
 @Tag(name = "housing", description = "The housings API.")
+@AllArgsConstructor
+@NoArgsConstructor
 public class HousingController {
 
-	@Autowired
+	
 	private HousingService housingService;
 
-	@Autowired
+	
 	private UserService userService;
 
 	@Operation(summary = "create a housing.", tags = {"housing"})

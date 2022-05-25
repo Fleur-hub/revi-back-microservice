@@ -11,17 +11,22 @@ import javax.persistence.*;
 @Setter
 @Builder
 @Entity
-@Table(name = "travaux")
+@Table(
+		name = "travaux",
+		uniqueConstraints =
+		@UniqueConstraint(columnNames = {"housing", "travaux_type"})
+)
 public class Travaux {
 	@Column(name = "id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private long id;
 
-	@Enumerated(EnumType.STRING)
-	private  TravauxType travauxType;
-
 	@ManyToOne
 	private Housing housing;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "travaux_type")
+	private TravauxType travauxType;
 
 }

@@ -1,10 +1,8 @@
 package com.back.revi.reviback.housing;
 
-import com.back.revi.reviback.user.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.util.Set;
 
 @Data
 public class HousingCreateRequest {
