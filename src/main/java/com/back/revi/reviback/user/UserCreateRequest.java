@@ -23,4 +23,6 @@ public class UserCreateRequest {
 	private String lastName;
 	@Schema(required = true)
 	private String phoneNumber;
+	@Schema(required = true)
+	private Long housingId;
 }

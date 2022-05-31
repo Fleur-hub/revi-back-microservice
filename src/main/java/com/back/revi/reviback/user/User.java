@@ -1,5 +1,6 @@
 package com.back.revi.reviback.user;
 
+import com.back.revi.reviback.housing.Housing;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,5 +48,9 @@ public class User {
 	@Column(name = "sign_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp signDate;
+
+	@OneToMany
+	@JoinColumn(name = "housing_id")
+	private List<Housing> housings;
 
 }

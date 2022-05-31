@@ -1,5 +1,7 @@
 package com.back.revi.reviback.user;
 
+import com.back.revi.reviback.housing.Housing;
+import com.back.revi.reviback.housing.HousingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +27,8 @@ import javax.validation.Valid;
 public class UserController {
 
 	private UserService userService;
+
+	private HousingService housingService;
 
 	@Operation(summary = "create a user.", tags = {"user"})
 	@ApiResponses(value = {
@@ -35,6 +40,10 @@ public class UserController {
 	})
 	@PostMapping(value = "/", consumes = "application/json", produces = "application/json")
 	ResponseEntity<UserDto> createUser(@Valid @RequestBody UserCreateRequest request) {
+		Optional<Housing> housing = housingService.findById(request.getHousingId());
+		if(housing.isEmpty()){
+			return ResponseEntity.badRequest().build();
+		}
 		User user = User.builder()
 						.email(request.getEmail())
 						.userRole(request.getUserRole())

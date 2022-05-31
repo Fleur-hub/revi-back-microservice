@@ -1,4 +1,4 @@
-package com.back.revi.reviback.chauffeeau;
+package com.back.revi.reviback.travaux.chauffeeau;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

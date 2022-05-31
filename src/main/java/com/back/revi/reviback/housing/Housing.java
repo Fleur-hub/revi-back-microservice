@@ -19,9 +19,6 @@ public class Housing {
 	@Id
 	private long id;
 
-	@ManyToOne
-	private User user;
-
 	@Column(name = "adress")
 	private String adress;
 

@@ -1,4 +1,4 @@
-package com.back.revi.reviback.chauffeeau;
+package com.back.revi.reviback.travaux.chauffeeau;
 
 import com.back.revi.reviback.housing.Housing;
 import lombok.AllArgsConstructor;

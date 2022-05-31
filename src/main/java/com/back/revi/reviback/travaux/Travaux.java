@@ -23,6 +23,7 @@ public class Travaux {
 	private long id;
 
 	@ManyToOne
+	@JoinColumn(name = "housing_id")
 	private Housing housing;
 
 	@Enumerated(EnumType.STRING)
